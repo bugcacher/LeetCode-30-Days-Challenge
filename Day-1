@@ -19,7 +19,7 @@ public:
         if(i==size-1)
             return nums[i];
         else
-            return 0;
+            return 0; 
     }
    
 };
