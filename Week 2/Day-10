@@ -1,0 +1,55 @@
+class MinStack {
+public:
+    /** initialize your data structure here. */
+    stack<int> s;
+    int minElement;
+    vector<int> min;
+    MinStack() {
+        
+    }
+    
+    void push(int x) {
+        if(s.empty())
+            minElement = x;
+        s.push(x);
+        
+        if(x<=minElement){
+            min.push_back(minElement);
+            minElement = x;
+        }
+    }
+    
+    void pop() {
+        if(s.empty())
+            return;
+        
+        int top = s.top();
+        if(top==minElement){
+            int size = min.size();
+            minElement = min[size-1];
+            min.pop_back();        
+        }
+        
+        s.pop();
+    }
+    
+    int top() {
+        if(s.empty())
+            return 0;
+        else
+          return  s.top();
+        
+       
+    }
+    
+    int getMin() {
+        
+        if(s.empty())
+            return 0;
+        
+        else
+          return minElement;  
+        
+        
+    }
+};
